@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "bossloottables",
+  "version": "${version}",
+  "name": "Boss Loot Tables",
+  "description": "Allows for the usage of loot tables with vanilla bosses. ",
+  "authors": [
+    "Draylar"
+  ],
+  "license": "MIT",
+  "icon": "assets/bossloottables/icon.png",
+  "environment": "*",
+  "mixins": [
+    "bossloottables.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.8.3+build.196",
+    "fabric": "*",
+    "minecraft": "1.15.2"
+  }
+}
