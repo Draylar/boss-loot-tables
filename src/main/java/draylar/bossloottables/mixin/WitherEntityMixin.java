@@ -24,11 +24,11 @@ public abstract class WitherEntityMixin extends LivingEntity {
     protected void dropLoot(DamageSource source, boolean causedByPlayer) {
         if(this.world.getServer() != null) {
             Identifier lootTableID = this.getLootTable();
-            LootTable lootTable = this.world.getServer().getLootManager().getSupplier(lootTableID);
+            LootTable lootTable = this.world.getServer().getLootManager().getTable(lootTableID);
             LootContext.Builder builder = this.getLootContextBuilder(causedByPlayer, source);
 
             // drop loot as "coveted", which takes longer to despawn
-            lootTable.dropLimited(builder.build(LootContextTypes.ENTITY), stack -> {
+            lootTable.generateLoot(builder.build(LootContextTypes.ENTITY), stack -> {
                 ItemEntity itemEntity = new ItemEntity(this.world, this.getX(), this.getY(), this.getZ(), stack);
                 itemEntity.setToDefaultPickupDelay();
                 itemEntity.setCovetedItem();
